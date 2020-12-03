@@ -1,0 +1,182 @@
+.todo
+    display: flex
+.sidebar
+    min-height: 90vh
+    // flex-grow: 0.013
+    width: 60px
+    background-color: $second-color
+    transition: 0.3s
+.burger
+    width: 30px
+    height: 30px 
+    margin-top: 25px
+    margin-left: 15px
+    cursor: pointer
+    display: flex
+    justify-content: center
+    align-items: center
+    &:hover
+        background-color: #fff
+.line
+    width: 60%
+    height: 1px
+    background-color: $main-color
+    position: relative
+    &:before
+        content: ''
+        width: 100%
+        height: 1px
+        background-color: $main-color
+        position: absolute
+        left: 0
+        top: -4px
+    &:after
+        content: ''
+        width: 100%
+        height: 1px
+        background-color: $main-color
+        position: absolute
+        left: 0
+        top: 4px
+.sidebar-active
+    width: 300px
+    // flex-grow: 0.2
+.tasks
+    max-height: 90vh
+    overflow-y: auto
+    // flex-grow: 1
+    flex: 1 1 0
+.tasks-title
+    margin-top: 28px
+    margin-left: 30px
+    color: $main-color
+.task
+    display: flex
+    align-items: center
+    padding-left: 30px
+    width: 100%
+    position: relative
+    cursor: pointer
+    &:after
+        content: ''
+        width: 97%
+        height: 2px 
+        background-color: $second-color
+        position: absolute
+        left: 50%
+        bottom: 0
+        transform: translateX(-50%)
+.task-add
+    width: 15px
+    padding-top: 18px 
+    padding-bottom: 18px
+    fill: $main-color
+.task-name
+    padding-left: 15px
+    border: none
+    color: #535353
+    width: 90%
+    padding-top: 20px
+    padding-bottom: 20px
+    &:focus
+        outline: 0
+.task-name::-webkit-input-placeholder
+    font-size: 16px
+    color: $main-color
+.task-focus:after
+    background-color: $main-color
+.task-fucus_text::-webkit-input-placeholder
+    color: #535353
+.task-btn
+    background-color: transparent
+    border: none
+    font-family: inherit
+    font-size: 16px
+    color: $main-color
+    visibility: hidden
+    cursor: default
+    padding-top: 20px 
+    padding-bottom: 20px
+    &:focus
+        outline: 0
+.new-task
+    display: flex
+    align-items: center
+    padding-left: 30px
+    width: 100%
+    position: relative
+    cursor: pointer
+    &:after
+        content: ''
+        width: 97%
+        height: 2px 
+        background-color: $second-color 
+        position: absolute
+        left: 50%
+        bottom: 0
+        transform: translateX(-50%)
+    &:before 
+        content: ''
+        width: 97% 
+        height: 100%
+        position: absolute
+        left: 50%
+        top: 0
+        transform: translateX(-50%)
+        z-index: -1
+    &:hover:before
+        background-color: $second-color
+#task-check
+    display: none
+.task-check_label
+    display: block
+    width: 17px
+    height: 17px
+    border-radius: 10px
+    border: 1px solid $main-color
+    cursor: pointer
+    position: relative
+    &::before
+        content: '✓'
+        font-size: 10px 
+        line-height: 0
+        position: absolute
+        left: 4px 
+        top: 8px
+        color: $main-color
+        transform: rotate(10deg)
+        display: none
+    &:hover::before
+        display: block
+.task-title
+    margin-left: 15px
+    border: none
+    color: #535353
+    width: 90%
+    padding-top: 20px
+    padding-bottom: 20px
+.task-delete
+    display: block
+    background-color: transparent
+    border: none
+    font-family: inherit
+    font-size: 16px
+    color: $main-color
+    padding-top: 20px 
+    padding-bottom: 20px
+
+.details
+    max-width: 350px
+    width: calc(100% - 50px)
+    background-color: $second-color
+    display: none
+.details-open
+    display: block
+
+
+
+
+
+
+
+    
