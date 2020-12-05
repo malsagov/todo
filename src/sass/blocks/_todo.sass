@@ -71,6 +71,10 @@
     padding-top: 18px 
     padding-bottom: 18px
     fill: $main-color
+.task-form
+    display: flex
+    align-items: center
+    width: 100%
 .task-name
     padding-left: 15px
     border: none
@@ -126,8 +130,13 @@
         z-index: -1
     &:hover:before
         background-color: $second-color
-#task-check
+.task-check
     display: none
+    &:checked ~ .task-check_label
+        background-color: $main-color
+    &:checked ~ .task-check_label::before 
+        display: block
+        color: #fff
 .task-check_label
     display: block
     width: 17px
@@ -164,7 +173,9 @@
     color: $main-color
     padding-top: 20px 
     padding-bottom: 20px
-
+    cursor: pointer
+    &:focus
+        outline: 0
 .details
     max-width: 350px
     width: calc(100% - 50px)
@@ -172,6 +183,20 @@
     display: none
 .details-open
     display: block
+.task-complete
+    display: flex
+    align-items: center
+    margin-left: 20px
+    margin-top: 25px
+    cursor: pointer
+    position: relative
+.tasks-complete__title
+    color: $main-color
+    margin-left: 10px
+.task-complete__content-active
+    display: none
+.task-complete__arrow-active
+    transform: rotate(90deg)
 
 
 
