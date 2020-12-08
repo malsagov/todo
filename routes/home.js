@@ -12,7 +12,6 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/add', async (req, res) => {
-    console.log()
     const task = new Task({
         title: req.body.task,
         desc: '',
@@ -29,15 +28,34 @@ router.post('/add', async (req, res) => {
 })
 
 router.post('/remove', async (req, res) => {
-    console.log(req.body)
     await Task.deleteOne({date: req.body.date}).lean()
     res.redirect('/')
 })
 
 router.post('/complete', async (req,res) => {
-    console.log(req.body)
     await Task.updateOne({date: req.body.date}, {$set: {complete: req.body.complete}})
     res.redirect('/')
+})
+
+const taskArr = []
+
+router.post('/details', async (req, res) => {
+    const task = await Task.findOne({date: req.body.date}).lean()
+
+    taskArr.unshift(task)
+    res.json(taskArr)
+})
+
+router.post('/edit-title', async(req, res) => {
+    const task = await Task.updateOne({date: req.body.date}, {$set: {title: req.body.title}}).lean()
+})
+
+router.post('/edit-desc', async(req, res) => {
+    const task = await Task.updateOne({date: req.body.date}, {$set: {desc: req.body.desc}}).lean()
+})
+
+router.post('/details-remove', async (req, res) => {
+    await Task.deleteOne({date: req.body.date}).lean()
 })
 
 module.exports = router

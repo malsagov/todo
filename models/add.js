@@ -3,7 +3,6 @@ const {Schema, model} = require('mongoose')
 const task = new Schema({
     title: {
         type: String,
-        required: true
     },
     desc: {
         type: String
