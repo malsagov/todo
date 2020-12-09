@@ -12,12 +12,13 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/add', async (req, res) => {
+    console.log(req.body)
     const task = new Task({
-        title: req.body.task,
-        desc: '',
-        date: Date.now(),
-        complete: false
-    })
+                title: req.body.task,
+                desc: '',
+                date: Date.now(),
+                complete: false
+            })
 
     try{
         await task.save()
@@ -32,18 +33,18 @@ router.post('/remove', async (req, res) => {
     res.redirect('/')
 })
 
-router.post('/complete', async (req,res) => {
+router.post('/complete', async (req, res) => {
     await Task.updateOne({date: req.body.date}, {$set: {complete: req.body.complete}})
-    res.redirect('/')
+    console.log(req.body.complete)
 })
 
-const taskArr = []
+const deleteTasksArr = []
 
 router.post('/details', async (req, res) => {
     const task = await Task.findOne({date: req.body.date}).lean()
 
-    taskArr.unshift(task)
-    res.json(taskArr)
+    deleteTasksArr.unshift(task)
+    res.json(deleteTasksArr)
 })
 
 router.post('/edit-title', async(req, res) => {

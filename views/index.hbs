@@ -189,12 +189,8 @@
         </div>
         <div class="details">
             <div class="details-title__wrap">
-                {{#if complete}}
-                <input data-date="{{date}}" class="task-check" id="details-check-{{date}}" type="checkbox" name="complete" checked>
-                {{else}}
-                <input data-date="{{date}}" class="task-check" id="details-check-{{date}}" type="checkbox" name="complete">
-                {{/if}}
-                <label class="task-check_label" for="details-check-{{date}}"></label>
+                <input data-date="{{date}}" class="task-check details-check" id="" type="checkbox" name="complete" maxlength="90">
+                <label class="task-check_label details-check__label" for=""></label>
                 <input data-date="" class="details-title" type="text" value="Текст">
             </div>
             <div class="details-desc__wrap">
