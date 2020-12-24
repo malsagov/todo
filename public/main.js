@@ -15,6 +15,17 @@ const sidebarMenuBtn = document.querySelector(".burger"),
   tasks = document.querySelector(".tasks"),
   detailsDeleteBtn = document.querySelector(".details-delete")
 
+const toData = data => {
+  return new Intl.DateTimeFormat('ru-RU', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+    // hour: '2-digit',
+    // minute: '2-digit',
+    // second: '2-digit'
+  }).format(new Date(data))
+}
+
 function burgerMenu() {
   sidebarMenuBtn.addEventListener("click", () => {
     sidebar.classList.toggle("sidebar-active");
@@ -87,7 +98,8 @@ function openDetails() {
   const detailsTitle = document.querySelector(".details-title"),
     detailsDesc = document.querySelector(".details-desc"),
     detailsCheck = document.querySelector('.details-check'),
-    detailsCheckLabel = document.querySelector('.details-check__label')
+    detailsCheckLabel = document.querySelector('.details-check__label'),
+    detailsData = document.querySelector('.details-data')
   tasksTitle.forEach((i) => {
     i.addEventListener("click", (e) => {
       if (e.target == i) {
@@ -106,14 +118,19 @@ function openDetails() {
           .then((res) => {
             return res.json();
           })
-          .then((body) => {
-            const task = body.find((j) => j.date == +i.dataset.date);
+          .then((task) => {
             detailsTitle.value = task.title;
             detailsTitle.dataset.date = task.date;
             detailsDesc.value = task.desc;
             detailsDesc.dataset.date = task.date;
             detailsDeleteBtn.dataset.date = task.date
             detailsCheck.dataset.date = task.date
+            const recentDate = new Date().toLocaleString('ru-RU', {day: '2-digit', month: 'long', year: 'numeric',})
+            if (recentDate == toData(task.data)) {
+              detailsData.textContent = 'сегодня'
+            } else {
+              detailsData.textContent = toData(task.data)
+            }
             detailsCheck.setAttribute('id', `details-check-${task.date}`)
             detailsCheckLabel.setAttribute('for', `details-check-${task.date}`)
             if (task.complete) {

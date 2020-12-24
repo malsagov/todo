@@ -17,7 +17,7 @@ router.post('/add', async (req, res) => {
                 title: req.body.task,
                 desc: '',
                 date: Date.now(),
-                complete: false
+                complete: false,
             })
 
     try{
@@ -38,13 +38,13 @@ router.post('/complete', async (req, res) => {
     console.log(req.body.complete)
 })
 
-const deleteTasksArr = []
+// const deleteTasksArr = []
 
 router.post('/details', async (req, res) => {
     const task = await Task.findOne({date: req.body.date}).lean()
 
-    deleteTasksArr.unshift(task)
-    res.json(deleteTasksArr)
+    // deleteTasksArr.unshift(task)
+    res.json(task)
 })
 
 router.post('/edit-title', async(req, res) => {

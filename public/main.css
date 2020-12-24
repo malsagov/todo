@@ -497,14 +497,11 @@ img {
 
 .details-date__wrap {
   font-size: 13px;
+  display: flex;
 }
 
-.details-create {
-  display: inline-block;
-}
-
-.details-date {
-  display: inline-block;
+.details-data {
+  margin-left: 5px;
 }
 
 .details-delete {

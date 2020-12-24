@@ -12,6 +12,10 @@ const task = new Schema({
     },
     complete: {
         type: Boolean
+    },
+    data: {
+        type: Date,
+        default: Date.now
     }
 })
 module.exports = model('Task', task)
