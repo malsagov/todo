@@ -1,0 +1,15 @@
+<div class="login-container">
+    <div class="login-box">
+        <h1 class="login-title">Создать аккаунт</h1>
+        <form class="login-form" action="/auth/register" method="post">
+            <input name="name" type="text" class="name input" placeholder="Введите ваше имя">
+            <input name="email" type="email" class="email input" placeholder="Введите ваш email">
+            <input name="password" type="password" class="password input" placeholder="Введите пароль">
+            <input name="confirm" type="confirm" class="confirm input" placeholder="Повторите пароль">
+            <div class="login-btns">
+                <a href="/auth/login" class="login-register">Войти в аккаунт</a>
+                <button type="submit" class="login-btn">Создать</button>
+            </div>
+        </form>
+    </div>
+</div>

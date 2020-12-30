@@ -1,10 +1,10 @@
 const express = require('express')
 const path = require('path')
 const exphbs = require('express-handlebars')
-const homeRoutes = require('./routes/home')
 const mongoose = require('mongoose')
-
 const app = express()
+const homeRoutes = require('./routes/home')
+const authRoutes = require('./routes/auth')
 
 const hbs = exphbs.create({
     defaultLayout: 'main',
@@ -21,10 +21,12 @@ app.set('views', 'views')
 
 
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public/image')))
 app.use(express.urlencoded({extended: true}))
 
 
 app.use('/', homeRoutes)
+app.use('/auth', authRoutes)
 
 async function start(){
     try{

@@ -38,12 +38,9 @@ router.post('/complete', async (req, res) => {
     console.log(req.body.complete)
 })
 
-// const deleteTasksArr = []
-
 router.post('/details', async (req, res) => {
     const task = await Task.findOne({date: req.body.date}).lean()
 
-    // deleteTasksArr.unshift(task)
     res.json(task)
 })
 

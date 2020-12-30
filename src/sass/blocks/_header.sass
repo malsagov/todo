@@ -5,15 +5,27 @@
     justify-content: space-between
     align-items: center
     min-height: 10vh
-    // padding-top: 15px
-    // padding-bottom: 15px
 .header-logo
     font-size: 24px
     font-weight: 700
     color: #fff
     cursor: pointer
 .header-auth
-    width: 50px
-    height: 50px 
-    fill: #fff
+    width: 65px
+    height: 65px 
     cursor: pointer
+    position: relative
+    &:hover
+        background-color: darken($main-color, 5% )
+.auth-avatar
+    position: absolute
+    max-width: 100%
+    padding: 5px
+.auth-btn   
+    color: #fff 
+    text-decoration: none 
+    border: 1px solid #fff
+    padding: 5px 10px 
+    border-radius: 2px
+    &:hover 
+        background-color: lighten($main-color, 5%)
